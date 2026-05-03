@@ -3,6 +3,8 @@ import { Marquee } from "@/components/home/Marquee";
 import { FeaturedBookCard } from "@/components/books/FeaturedBookCard";
 import { getFeaturedBooks } from "@/lib/books";
 
+export const dynamic = "force-dynamic";
+
 const CATEGORY_CARDS = [
   {
     title: "Story",
@@ -26,13 +28,13 @@ const CATEGORY_CARDS = [
 
 const WHY = [
   { title: "Huge Collection", text: "Story, Tech, and Science titles in one hive." },
-  { title: "Easy Borrow", text: "Reserve in seconds—accounts arrive soon." },
+  { title: "Easy Borrow", text: "Reserve in seconds with your BookHive account." },
   { title: "Fast Search", text: "Find the right book by title without friction." },
   { title: "Responsive Design", text: "Read, browse, and borrow on any screen." },
 ] as const;
 
-export default function HomePage() {
-  const featured = getFeaturedBooks(4);
+export default async function HomePage() {
+  const featured = await getFeaturedBooks(4);
 
   return (
     <>
@@ -74,7 +76,7 @@ export default function HomePage() {
                 </div>
                 <div className="col-span-2 rounded-2xl bg-accent/15 p-4 text-center">
                   <p className="text-sm font-medium text-accent">
-                    Borrowing opens with the next release—preview the catalog today.
+                    Sign in to borrow—inventory stays in sync with MongoDB.
                   </p>
                 </div>
               </div>

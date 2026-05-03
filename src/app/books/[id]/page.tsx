@@ -2,19 +2,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { BorrowButton } from "@/components/books/BorrowButton";
-import { getAllBooks, getBookById } from "@/lib/books";
+import { getBookById } from "@/lib/books";
+
+export const dynamic = "force-dynamic";
 
 type Props = {
   params: Promise<{ id: string }>;
 };
 
-export function generateStaticParams() {
-  return getAllBooks().map((b) => ({ id: b.id }));
-}
-
 export default async function BookDetailPage({ params }: Props) {
   const { id } = await params;
-  const book = getBookById(id);
+  const book = await getBookById(id);
   if (!book) notFound();
 
   return (
@@ -50,7 +48,7 @@ export default async function BookDetailPage({ params }: Props) {
               {book.available_quantity} copies
             </p>
           </div>
-          <BorrowButton />
+          <BorrowButton bookId={book.id} />
         </div>
       </div>
     </div>

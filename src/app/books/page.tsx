@@ -2,6 +2,8 @@ import { Suspense } from "react";
 import { getAllBooks } from "@/lib/books";
 import { BooksCatalog } from "@/components/books/BooksCatalog";
 
+export const dynamic = "force-dynamic";
+
 function CatalogFallback() {
   return (
     <div className="mx-auto max-w-7xl px-4 py-16 sm:px-6 lg:px-8">
@@ -13,8 +15,8 @@ function CatalogFallback() {
   );
 }
 
-export default function BooksPage() {
-  const books = getAllBooks();
+export default async function BooksPage() {
+  const books = await getAllBooks();
 
   return (
     <Suspense fallback={<CatalogFallback />}>
