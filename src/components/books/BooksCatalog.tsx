@@ -3,7 +3,7 @@
 import { useMemo, useState } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import type { Book, BookCategory } from "@/types/book";
-import { bookCategories } from "@/lib/books";
+import { bookCategories } from "@/lib/book-categories";
 import { CatalogBookCard } from "./CatalogBookCard";
 
 const FILTERS: Array<"All" | BookCategory> = ["All", ...bookCategories];
