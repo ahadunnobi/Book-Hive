@@ -1,0 +1,110 @@
+[
+  {
+    "id": "1",
+    "title": "The Night Letters",
+    "author": "Elena Marlow",
+    "description": "A sweeping story of family secrets and letters that arrive decades too late, set against a coastal town recovering from a storm.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "2",
+    "title": "Rust to Reason",
+    "author": "Devon Kline",
+    "description": "A practical tour of systems programming patterns with Rust, from ownership to fearless concurrency in real projects.",
+    "category": "Tech",
+    "available_quantity": 4,
+    "image_url": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "3",
+    "title": "Quantum Garden",
+    "author": "Dr. Amira Sol",
+    "description": "An accessible exploration of quantum phenomena through vivid metaphors and the experiments that shaped modern physics.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://images.unsplash.com/photo-1532012197263-da84d129eaaa?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "4",
+    "title": "Harbor Lights",
+    "author": "James Whitaker",
+    "description": "Two strangers share a bench every evening until a single confession changes the rhythm of the harbor forever.",
+    "category": "Story",
+    "available_quantity": 3,
+    "image_url": "https://images.unsplash.com/photo-1543002588-bfa74002ed7e?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "5",
+    "title": "Design Systems in the Wild",
+    "author": "Priya Nandakumar",
+    "description": "How teams scale UI consistency with tokens, documentation, and governance—without slowing shipping.",
+    "category": "Tech",
+    "available_quantity": 7,
+    "image_url": "https://images.unsplash.com/photo-1504639725590-34d0984388bd?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "6",
+    "title": "The Carbon Atlas",
+    "author": "Luis Ortega",
+    "description": "A visual journey through Earth’s carbon cycle, climate feedbacks, and the technologies reshaping emissions.",
+    "category": "Science",
+    "available_quantity": 2,
+    "image_url": "https://images.unsplash.com/photo-1451187580459-43490279c0fa?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "7",
+    "title": "Paper Boats",
+    "author": "Mina Cho",
+    "description": "Childhood friends reunite to finish a ritual they abandoned—folding boats for wishes that were never spoken.",
+    "category": "Story",
+    "available_quantity": 8,
+    "image_url": "https://images.unsplash.com/photo-1476275466078-4007374efbbe?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "8",
+    "title": "APIs That Don’t Flake",
+    "author": "Samir Okonkwo",
+    "description": "Resilience patterns for public APIs: idempotency, versioning, rate limits, and graceful degradation under load.",
+    "category": "Tech",
+    "available_quantity": 5,
+    "image_url": "https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "9",
+    "title": "Neuroplastic Mornings",
+    "author": "Dr. Helen Voss",
+    "description": "Evidence-based habits that support attention, memory, and recovery—written for curious readers, not clinicians.",
+    "category": "Science",
+    "available_quantity": 4,
+    "image_url": "https://images.unsplash.com/photo-1576086213369-97a306d36557?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "10",
+    "title": "The Clockmaker’s Daughter",
+    "author": "Isabel Grant",
+    "description": "A mystery braided through generations, centered on a workshop where timepieces keep more than hours.",
+    "category": "Story",
+    "available_quantity": 6,
+    "image_url": "https://images.unsplash.com/photo-1524578271613-d550eacf6090?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "11",
+    "title": "Data Mesh Field Notes",
+    "author": "Noah Patel",
+    "description": "Lessons from organizations adopting data mesh: ownership models, federated governance, and platform ergonomics.",
+    "category": "Tech",
+    "available_quantity": 3,
+    "image_url": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=800&fit=crop"
+  },
+  {
+    "id": "12",
+    "title": "Oceans in Motion",
+    "author": "Dr. Yuki Tanaka",
+    "description": "Currents, tides, and marine life in a changing climate—beautifully illustrated and rigorously explained.",
+    "category": "Science",
+    "available_quantity": 5,
+    "image_url": "https://images.unsplash.com/photo-1439405326854-014607f0d800?w=600&h=800&fit=crop"
+  }
+]
