@@ -1,42 +1,41 @@
 "use client";
 
-import { useMemo, useState, useEffect } from "react";
-import { useSearchParams } from "next/navigation";
+import { useMemo, useState } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import type { Book, BookCategory } from "@/types/book";
 import { bookCategories } from "@/lib/books";
 import { CatalogBookCard } from "./CatalogBookCard";
 
-const FILTERS: Array<"All" | BookCategory> = [
-  "All",
-  ...bookCategories,
-];
+const FILTERS: Array<"All" | BookCategory> = ["All", ...bookCategories];
 
 type Props = {
   books: Book[];
 };
 
 export function BooksCatalog({ books }: Props) {
+  const router = useRouter();
   const searchParams = useSearchParams();
   const [query, setQuery] = useState("");
-  const [category, setCategory] = useState<(typeof FILTERS)[number]>("All");
 
-  useEffect(() => {
-    const cat = searchParams.get("category");
-    if (
-      cat === "Story" ||
-      cat === "Tech" ||
-      cat === "Science"
-    ) {
-      setCategory(cat);
+  const category: (typeof FILTERS)[number] = (() => {
+    const raw = searchParams.get("category");
+    if (raw === "Story" || raw === "Tech" || raw === "Science") return raw;
+    return "All";
+  })();
+
+  const setCategory = (next: (typeof FILTERS)[number]) => {
+    if (next === "All") {
+      router.push("/books");
+      return;
     }
-  }, [searchParams]);
+    router.push(`/books?category=${encodeURIComponent(next)}`);
+  };
 
   const filtered = useMemo(() => {
     const q = query.trim().toLowerCase();
     return books.filter((b) => {
       const matchCat = category === "All" || b.category === category;
-      const matchQ =
-        q === "" || b.title.toLowerCase().includes(q);
+      const matchQ = q === "" || b.title.toLowerCase().includes(q);
       return matchCat && matchQ;
     });
   }, [books, category, query]);

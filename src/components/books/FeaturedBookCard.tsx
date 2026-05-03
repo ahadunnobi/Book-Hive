@@ -24,7 +24,7 @@ export function FeaturedBookCard({ book }: Props) {
             {book.category}
           </span>
           <span className="text-xs font-medium text-base-content/60">
-            {book.available_quantity} left
+            Qty: {book.available_quantity}
           </span>
         </div>
         <h3 className="card-title line-clamp-2 text-lg leading-snug">
