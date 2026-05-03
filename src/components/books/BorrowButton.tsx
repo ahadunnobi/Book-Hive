@@ -3,7 +3,6 @@
 import { useCallback, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 import { borrowBookAction } from "@/actions/borrow-book";
-import { authClient } from "@/lib/auth-client";
 
 type Props = {
   bookId: string;
@@ -13,7 +12,7 @@ export function BorrowButton({ bookId }: Props) {
   const router = useRouter();
   const [loading, setLoading] = useState(false);
   const [toast, setToast] = useState<{
-    type: "success" | "error" | "info";
+    type: "success" | "error";
     message: string;
   } | null>(null);
 
@@ -27,32 +26,24 @@ export function BorrowButton({ bookId }: Props) {
 
   async function onBorrow() {
     setToast(null);
-    const { data: session, error: sessionError } = await authClient.getSession();
-    if (sessionError || !session?.user) {
-      router.push(`/login?callbackUrl=${encodeURIComponent(`/books/${bookId}`)}`);
-      setToast({ type: "info", message: "Please sign in to borrow this book." });
-      return;
-    }
     setLoading(true);
     const result = await borrowBookAction(bookId);
     setLoading(false);
-    if (result.ok) {
-      setToast({
-        type: "success",
-        message: `Borrowed! ${result.remaining} cop${result.remaining === 1 ? "y" : "ies"} left.`,
-      });
-      router.refresh();
-    } else {
+    if (!result.ok) {
+      if (result.error === "You must be signed in to borrow.") {
+        router.push(`/login?callbackUrl=${encodeURIComponent(`/books/${bookId}`)}`);
+      }
       setToast({ type: "error", message: result.error });
+      return;
     }
+    setToast({
+      type: "success",
+      message: `Borrowed! ${result.remaining} cop${result.remaining === 1 ? "y" : "ies"} left.`,
+    });
+    router.refresh();
   }
 
-  const alertClass =
-    toast?.type === "success"
-      ? "alert-success"
-      : toast?.type === "error"
-        ? "alert-error"
-        : "alert-info";
+  const alertClass = toast?.type === "success" ? "alert-success" : "alert-error";
 
   return (
     <div className="relative">
