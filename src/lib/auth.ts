@@ -3,15 +3,11 @@ import { mongodbAdapter } from "better-auth/adapters/mongodb";
 import { nextCookies } from "better-auth/next-js";
 import { getDb, getMongoClient } from "@/lib/mongo";
 
-const secret = process.env.BETTER_AUTH_SECRET;
-const baseURL = process.env.BETTER_AUTH_URL;
-
-if (!secret) {
-  throw new Error("BETTER_AUTH_SECRET is not set");
-}
-if (!baseURL) {
-  throw new Error("BETTER_AUTH_URL is not set");
-}
+/** Set in `.env.local` — see `env.example`. Defaults allow local `next build` without a file. */
+const secret =
+  process.env.BETTER_AUTH_SECRET ??
+  "dev-only-set-better-auth-secret-32chars-minimum-ok";
+const baseURL = process.env.BETTER_AUTH_URL ?? "http://localhost:3000";
 
 const client = getMongoClient();
 const db = getDb();

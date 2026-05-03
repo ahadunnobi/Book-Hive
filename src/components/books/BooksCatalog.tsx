@@ -19,7 +19,9 @@ export function BooksCatalog({ books }: Props) {
 
   const category: (typeof FILTERS)[number] = (() => {
     const raw = searchParams.get("category");
-    if (raw === "Story" || raw === "Tech" || raw === "Science") return raw;
+    if (raw && bookCategories.includes(raw as BookCategory)) {
+      return raw as BookCategory;
+    }
     return "All";
   })();
 
@@ -35,7 +37,13 @@ export function BooksCatalog({ books }: Props) {
     const q = query.trim().toLowerCase();
     return books.filter((b) => {
       const matchCat = category === "All" || b.category === category;
-      const matchQ = q === "" || b.title.toLowerCase().includes(q);
+      const tagMatch =
+        b.tags?.some((t) => t.toLowerCase().includes(q)) ?? false;
+      const matchQ =
+        q === "" ||
+        b.title.toLowerCase().includes(q) ||
+        b.author.toLowerCase().includes(q) ||
+        tagMatch;
       return matchCat && matchQ;
     });
   }, [books, category, query]);
@@ -47,7 +55,7 @@ export function BooksCatalog({ books }: Props) {
           All Books
         </h1>
         <p className="mt-2 text-base-content/70">
-          Search live by title and narrow by category.
+          Search by title, author, or tags and narrow by category.
         </p>
       </div>
 

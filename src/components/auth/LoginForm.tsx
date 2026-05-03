@@ -2,7 +2,7 @@
 
 import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { authClient } from "@/lib/auth-client";
 
 type Props = {
@@ -16,13 +16,8 @@ export function LoginForm({ googleAuthEnabled }: Props) {
   const [password, setPassword] = useState("");
   const [submitting, setSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
-  const [toast, setToast] = useState<string | null>(null);
 
-  useEffect(() => {
-    if (searchParams.get("registered") === "1") {
-      setToast("Registration successful. Sign in with your email and password.");
-    }
-  }, [searchParams]);
+  const showRegisteredBanner = searchParams.get("registered") === "1";
 
   function safeCallbackUrl(): string {
     const raw = searchParams.get("callbackUrl");
@@ -48,7 +43,6 @@ export function LoginForm({ googleAuthEnabled }: Props) {
       setError(apiError.message ?? "Sign-in failed.");
       return;
     }
-    setToast("Welcome back!");
     router.push(safeCallbackUrl());
     router.refresh();
   }
@@ -68,17 +62,17 @@ export function LoginForm({ googleAuthEnabled }: Props) {
         Access your borrows and profile.
       </p>
 
-      {error ? (
-        <div role="alert" className="alert alert-error mt-6 shadow-md">
-          <span>{error}</span>
+      {showRegisteredBanner ? (
+        <div role="status" className="alert alert-success mt-6 shadow-md">
+          <span>
+            Registration successful. Sign in with your email and password.
+          </span>
         </div>
       ) : null}
 
-      {toast ? (
-        <div className="toast toast-center toast-top z-50">
-          <div className="alert alert-success shadow-lg">
-            <span>{toast}</span>
-          </div>
+      {error ? (
+        <div role="alert" className="alert alert-error mt-6 shadow-md">
+          <span>{error}</span>
         </div>
       ) : null}
 

@@ -16,14 +16,24 @@ export async function ensureBooksSeeded(): Promise<void> {
 
 function toBook(doc: unknown): Book {
   const o = doc as Book & { _id?: unknown };
+  const id = o.id ?? (o._id != null ? String(o._id) : "");
   return {
-    id: o.id,
+    id,
     title: o.title,
     author: o.author,
     description: o.description,
     category: o.category,
     available_quantity: o.available_quantity,
     image_url: o.image_url,
+    language: o.language,
+    publisher: o.publisher,
+    published_year: o.published_year,
+    pages: o.pages,
+    rating: o.rating,
+    price: o.price,
+    isbn: o.isbn,
+    featured: o.featured,
+    tags: o.tags,
   };
 }
 
@@ -43,8 +53,15 @@ export async function getBookById(id: string): Promise<Book | undefined> {
 
 export async function getFeaturedBooks(count: number): Promise<Book[]> {
   const all = await getAllBooks();
-  return [...all]
-    .sort((a, b) => b.available_quantity - a.available_quantity)
+  const flagged = all.filter((b) => b.featured);
+  const pool = flagged.length > 0 ? flagged : all;
+  return [...pool]
+    .sort((a, b) => {
+      const rb = b.rating ?? 0;
+      const ra = a.rating ?? 0;
+      if (rb !== ra) return rb - ra;
+      return b.available_quantity - a.available_quantity;
+    })
     .slice(0, count);
 }
 
@@ -56,7 +73,7 @@ export async function borrowBook(
 > {
   await ensureBooksSeeded();
   const db = getDb();
-  const col = db.collection<Book>(BOOKS);
+  const col = db.collection(BOOKS);
   const updated = await col.findOneAndUpdate(
     { id: bookId, available_quantity: { $gt: 0 } },
     { $inc: { available_quantity: -1 } },
@@ -65,12 +82,13 @@ export async function borrowBook(
   if (!updated) {
     return { ok: false, error: "No copies available or book not found." };
   }
+  const book = toBook(updated);
   await db.collection(BORROWS).insertOne({
     userId,
     bookId,
     createdAt: new Date(),
   });
-  return { ok: true, remaining: updated.available_quantity };
+  return { ok: true, remaining: book.available_quantity };
 }
 
 export async function getBorrowCount(userId: string): Promise<number> {

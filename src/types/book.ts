@@ -1,4 +1,24 @@
-export type BookCategory = "Story" | "Tech" | "Science";
+export type BookCategory =
+  | "Anthology"
+  | "Art"
+  | "Biography"
+  | "Business"
+  | "Drama"
+  | "Essays"
+  | "Fiction"
+  | "History"
+  | "Mythology"
+  | "Novels"
+  | "Philosophy"
+  | "Poetry"
+  | "Programming"
+  | "Psychology"
+  | "Religion"
+  | "Science"
+  | "Self Help"
+  | "Story"
+  | "Tech"
+  | "Uncategorized";
 
 export type Book = {
   id: string;
@@ -8,4 +28,13 @@ export type Book = {
   category: BookCategory;
   available_quantity: number;
   image_url: string;
+  language?: string;
+  publisher?: string;
+  published_year?: number;
+  pages?: number;
+  rating?: number;
+  price?: number;
+  isbn?: string;
+  featured?: boolean;
+  tags?: string[];
 };

@@ -24,10 +24,28 @@ const CATEGORY_CARDS = [
     href: "/books?category=Science",
     emoji: "🔭",
   },
+  {
+    title: "Programming",
+    blurb: "Code, craft, and software excellence.",
+    href: "/books?category=Programming",
+    emoji: "⚡",
+  },
+  {
+    title: "Business",
+    blurb: "Strategy, leadership, and growth.",
+    href: "/books?category=Business",
+    emoji: "📈",
+  },
+  {
+    title: "Self Help",
+    blurb: "Habits, focus, and personal momentum.",
+    href: "/books?category=Self%20Help",
+    emoji: "🌱",
+  },
 ] as const;
 
 const WHY = [
-  { title: "Huge Collection", text: "Story, Tech, and Science titles in one hive." },
+  { title: "Huge Collection", text: "2,000 titles across twenty curated categories." },
   { title: "Easy Borrow", text: "Reserve in seconds with your BookHive account." },
   { title: "Fast Search", text: "Find the right book by title without friction." },
   { title: "Responsive Design", text: "Read, browse, and borrow on any screen." },
@@ -67,11 +85,11 @@ export default async function HomePage() {
             <div className="relative rounded-3xl border border-base-300 bg-base-200/50 p-8 shadow-2xl backdrop-blur-sm">
               <div className="grid grid-cols-2 gap-4">
                 <div className="rounded-2xl bg-primary/20 p-4 text-center">
-                  <p className="text-3xl font-bold text-primary">12+</p>
+                  <p className="text-3xl font-bold text-primary">2,000+</p>
                   <p className="text-xs text-base-content/70">Curated titles</p>
                 </div>
                 <div className="rounded-2xl bg-secondary/20 p-4 text-center">
-                  <p className="text-3xl font-bold text-secondary">3</p>
+                  <p className="text-3xl font-bold text-secondary">20</p>
                   <p className="text-xs text-base-content/70">Categories</p>
                 </div>
                 <div className="col-span-2 rounded-2xl bg-accent/15 p-4 text-center">
@@ -112,7 +130,7 @@ export default async function HomePage() {
           <p className="mx-auto mt-2 max-w-2xl text-center text-base-content/70">
             Jump straight into the shelf that fits your mood.
           </p>
-          <div className="mt-10 grid gap-6 md:grid-cols-3">
+          <div className="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {CATEGORY_CARDS.map((c) => (
               <Link
                 key={c.title}
