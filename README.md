@@ -32,11 +32,7 @@
 - `typescript`
 - `mongodb` (Legacy driver support)
 
-# BookHive Regeneration Prompt 🚀
 
-This prompt is designed to help an AI (like Cursor or Antigravity) rebuild or extend the BookHive project with a consistent vision.
-
----
 
 ## The Vision
 Build a premium, state-of-the-art book catalog and borrowing platform called **BookHive**. The aesthetic should be "Modern Academic meets Futuristic Tech"—think glassmorphism, deep navy and golden honey tones, and smooth, staggered animations.
