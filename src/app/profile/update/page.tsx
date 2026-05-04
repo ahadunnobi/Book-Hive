@@ -1,3 +1,4 @@
+import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { UpdateProfileForm } from "@/components/auth/UpdateProfileForm";
@@ -10,7 +11,7 @@ export default async function UpdateProfilePage() {
   });
 
   if (!session) {
-    return null;
+    redirect("/login?callbackUrl=/profile/update");
   }
 
   return (

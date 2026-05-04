@@ -63,7 +63,7 @@ export default async function HomePage() {
             <p className="text-sm font-semibold uppercase tracking-widest text-secondary">
               BookHive
             </p>
-            <h1 className="text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
+            <h1 className="animate__animated animate__fadeInDown text-4xl font-extrabold leading-tight tracking-tight sm:text-5xl lg:text-6xl">
               Find Your Next Read
             </h1>
             <p className="max-w-xl text-lg text-base-content/75">

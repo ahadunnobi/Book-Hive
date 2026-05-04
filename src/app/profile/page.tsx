@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { redirect } from "next/navigation";
 import { headers } from "next/headers";
 import { auth } from "@/lib/auth";
 import { getBorrowCount } from "@/lib/book-repository";
@@ -11,7 +12,7 @@ export default async function ProfilePage() {
   });
 
   if (!session) {
-    return null;
+    redirect("/login?callbackUrl=/profile");
   }
 
   const user = session.user;

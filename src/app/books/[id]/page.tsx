@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { notFound } from "next/navigation";
+import { notFound, redirect } from "next/navigation";
+import { headers } from "next/headers";
+import { auth } from "@/lib/auth";
 import { BorrowButton } from "@/components/books/BorrowButton";
 import { getBookById } from "@/lib/books";
 
@@ -12,6 +14,15 @@ type Props = {
 
 export default async function BookDetailPage({ params }: Props) {
   const { id } = await params;
+
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect(`/login?callbackUrl=/books/${id}`);
+  }
+
   const book = await getBookById(id);
   if (!book) notFound();
 

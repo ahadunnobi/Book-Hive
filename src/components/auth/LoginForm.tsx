@@ -57,7 +57,7 @@ export function LoginForm({ googleAuthEnabled }: Props) {
 
   return (
     <div className="mx-auto w-full max-w-md px-4 py-10">
-      <h1 className="text-3xl font-bold">Sign in</h1>
+      <h1 className="text-3xl font-bold">Login</h1>
       <p className="mt-2 text-base-content/70">
         Access your borrows and profile.
       </p>

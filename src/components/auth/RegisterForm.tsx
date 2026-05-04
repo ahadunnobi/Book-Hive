@@ -59,7 +59,7 @@ export function RegisterForm({ googleAuthEnabled }: Props) {
 
   return (
     <div className="mx-auto w-full max-w-md px-4 py-10">
-      <h1 className="text-3xl font-bold">Create account</h1>
+      <h1 className="text-3xl font-bold">Registration</h1>
       <p className="mt-2 text-base-content/70">
         Join BookHive to borrow titles and manage your profile.
       </p>
