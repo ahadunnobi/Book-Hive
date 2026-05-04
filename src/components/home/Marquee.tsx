@@ -1,8 +1,8 @@
 const SEGMENTS = [
-  "New Arrivals",
-  "Top Story Books",
-  "Tech Collection",
-  "Science Reads",
+  "New Arrivals: The Great Gatsby",
+  "Special Discount on Memberships",
+  "Free Shipping on Orders Over $50",
+  "Join Our Community Today",
 ] as const;
 
 export function Marquee() {
