@@ -94,7 +94,7 @@ export default async function HomePage() {
                 </div>
                 <div className="col-span-2 rounded-2xl bg-accent/15 p-4 text-center">
                   <p className="text-sm font-medium text-accent">
-                    Sign in to borrow—inventory stays in sync with MongoDB.
+                    Sign in to borrow—inventory is local and lightning fast.
                   </p>
                 </div>
               </div>
