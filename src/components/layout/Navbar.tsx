@@ -31,9 +31,11 @@ export function Navbar() {
         <div className="flex-1">
           <Link
             href="/"
-            className="text-xl font-bold tracking-tight text-primary transition hover:opacity-90 sm:text-2xl"
+            className="flex items-center gap-2 text-xl font-bold tracking-tight text-primary transition hover:opacity-90 sm:text-2xl"
           >
-            BookHive
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img src="/logo.png" alt="" className="h-8 w-8" />
+            <span>BookHive</span>
           </Link>
         </div>
         <div className="hidden flex-none md:flex">

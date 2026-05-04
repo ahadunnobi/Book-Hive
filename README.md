@@ -1,9 +1,13 @@
+<p align="center">
+  <img src="public/logo.png" alt="BookHive Logo" width="200" />
+</p>
+
 # BookHive 📖🐝
 
 **BookHive** is a premium, high-performance web application designed for book enthusiasts to discover, explore, and manage their reading journey. Built with a focus on speed and aesthetic excellence, it provides a seamless "borrowing" experience powered by a curated local catalog.
 
 ## 🚀 Live Demo
-[Coming Soon](https://book-hive-demo.vercel.app)
+[Book Hive ](https://book-hive-gamma.vercel.app)
 
 ## ✨ Key Features
 - **Curated Catalog**: Explore over 2,000 titles across 20+ specialized categories (Tech, Science, Fiction, etc.).
@@ -16,10 +20,12 @@
 
 ## 🛠️ Tech Stack
 - **Framework**: [Next.js 16 (Turbopack)](https://nextjs.org/)
-- **Styling**: [Tailwind CSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
+- **UI Libraries**: [Tailwind CSS](https://tailwindcss.com/) & [DaisyUI](https://daisyui.com/)
 - **Animations**: [Framer Motion](https://www.framer.com/motion/)
 - **Authentication**: [Better-Auth](https://www.better-auth.com/)
 - **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Data**: Server-side fetching from `@/lib/books-json.ts`.
+- **SEO**: Meta tags for title "BookHive | Discover & Borrow" and description "Explore a curated collection of 2,000+ books."
 
 ## 📦 NPM Packages Used
 - `next`
@@ -52,14 +58,6 @@ Build a premium, state-of-the-art book catalog and borrowing platform called **B
     - Google Social Auth (placeholder integration).
 - **User Profile**: A dashboard where users can see their "borrowed" books (local mock state for now).
 - **Navigation**: A sticky, translucent navbar with a user avatar and links to Home, Books, and Profile.
-
-## Technical Requirements
-- **Framework**: Next.js 16 (Turbopack).
-- **UI Libraries**: Tailwind CSS + DaisyUI.
-- **Animations**: Framer Motion for scroll reveals and page transitions.
-- **Data**: Server-side fetching from `@/lib/books-json.ts`.
-- **SEO**: Meta tags for title "BookHive | Discover & Borrow" and description "Explore a curated collection of 2,000+ books."
-
 ---
 
 ## Color Palette

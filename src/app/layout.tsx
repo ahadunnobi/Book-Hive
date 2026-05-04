@@ -10,8 +10,12 @@ const outfit = Outfit({
 });
 
 export const metadata: Metadata = {
-  title: "BookHive | Online Book Borrowing",
-  description: "Discover and borrow books easily.",
+  title: "BookHive | Discover & Borrow Your Next Great Read",
+  description:
+    "Explore a curated collection of 2,000+ books across 20 categories. BookHive offers a premium, fast, and seamless experience for book lovers to find and borrow their next favorite titles.",
+  icons: {
+    icon: "/logo.png",
+  },
 };
 
 export default function RootLayout({

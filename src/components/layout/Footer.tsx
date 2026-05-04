@@ -11,8 +11,12 @@ export function Footer() {
     <footer className="border-t border-base-300 bg-base-200/50">
       <div className="mx-auto max-w-7xl px-4 py-12 sm:px-6 lg:px-8">
         <div className="grid gap-10 md:grid-cols-3">
-          <div>
-            <p className="text-lg font-bold text-primary">BookHive</p>
+          <div className="space-y-4">
+            <div className="flex items-center gap-2">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img src="/logo.png" alt="" className="h-7 w-7" />
+              <p className="text-lg font-bold text-primary">BookHive</p>
+            </div>
             <p className="mt-2 max-w-sm text-sm text-base-content/70">
               Discover stories, tech, and science titles—borrow with a tap when
               accounts go live.
